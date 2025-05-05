@@ -1,0 +1,371 @@
+/* ================================
+   Name: Roz Ogania
+   Student ID: po4296
+   CS351-01 SP25
+   May 4, 2025
+
+  File: desk-styles.css
+   ================================ */
+
+/* ================
+   BASE STYLES
+   ================ */
+body {
+    margin: 0;
+    height: 100vh;
+    background-image: url('./images/wood-texture.jpg');
+    background-repeat: repeat;
+    background-size: 1000px 500px;
+    font-family: Arial, sans-serif;
+}
+
+.desk {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.desk-decorations {
+    pointer-events: none;
+    user-select: none;
+}
+
+/* ================
+   CALCULATOR STYLES
+   ================ */
+.calculator {
+    position: absolute;
+    top: 50px;
+    left: 900px;
+    width: 220px;
+    padding: 20px;
+    background: #ebe2dd;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    z-index: 14;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+#display {
+    width: calc(100% - 10px);
+    height: 50px;
+    margin-bottom: 15px;
+    padding: 5px;
+    font-size: 24px;
+    text-align: right;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.buttons button {
+    height: 45px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    background: #fff;
+    box-shadow: 0 2px 0 #ddd, 0 3px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.1s ease;
+}
+
+.buttons button:nth-child(4n) {
+    background: #dde8ed;
+    color: black;
+}
+
+.buttons .equals {
+    background: #b6d8f7;
+    color: white;
+    box-shadow: 0 2px 0 #228be6;
+}
+
+.buttons button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 0 #ddd, 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.buttons button:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 0 #ddd;
+}
+
+/* ================
+   NOTEPAD STYLES
+   ================ */
+@font-face {
+    font-family: 'Chalkboard SE';
+    src: local('Chalkboard SE'), local('ChalkboardSE-Regular');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.notepad {
+    position: absolute;
+    top: 50px;
+    left: 450px;
+    width: 400px;
+    height: 400px;
+    background: #f9e892;
+    border: 1px solid #ccc;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+    resize: both;
+    overflow: hidden;
+    z-index: 13;
+}
+
+.notepad-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    font-family: 'Chalkboard SE', 'Comic Sans MS', cursive, sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    cursor: grab;
+    background: #f5ce40;
+    border-bottom: 1px solid #ddd;
+    user-select: none;
+}
+
+.notepad-topbar:active {
+    cursor: grabbing;
+}
+
+.clear-btn {
+    font-family: inherit;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    margin-left: auto;
+}
+
+.drawing-area {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: calc(100% - 40px);
+    background: #f9e892;
+    cursor: crosshair;
+}
+
+/* ================
+   DESK ITEMS STYLES
+   ================ */
+.desk-item {
+    position: absolute;
+    cursor: grab;
+    user-select: none;
+    z-index: 10;
+    transition: transform 0.2s ease-out, filter 0.3s ease;
+}
+
+.desk-item:active {
+    cursor: grabbing;
+    transform: scale(1.1);
+    transition: none;
+    filter: none !important;
+}
+
+.desk-item:not(:active):hover {
+    filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.4)) brightness(1.03);
+}
+
+/* Individual Desk Item Positioning */
+.pencil {
+    width: 600px;
+    top: 150px;
+    left: 1200px;
+    z-index: 11;
+    transform: rotate(-30deg);
+}
+
+.eraser {
+    width: 150px;
+    top: 460px;
+    left: 1140px;
+    z-index: 11;
+    transform: rotate(-15deg);
+}
+
+.ruler {
+    width: 900px;
+    top: 700px;
+    left: -300px;
+    z-index: 8;
+    transform: rotate(-20deg);
+    filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.2));
+}
+
+.ballpoint-pen {
+    width: 600px;
+    top: 150px;
+    left: 1200px;
+    z-index: 11;
+    filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.3));
+}
+
+.stapler {
+    width: 450px;
+    top: 200px;
+    left: 1450px;
+    z-index: 12;
+    transform: rotate(-5deg);
+    filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.4));
+}
+
+.dice {
+    width: 150px; /* Adjust size as needed */
+    top: 750px; /* Initial position */
+    left: 260px;
+    z-index: 10;
+    filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.3));
+    transition: transform 0.2s ease-out;
+}
+
+.desk-mat {
+    position: absolute;
+    top: 350px;
+    left: 300px;
+    width: 1300px;
+    z-index: 1;
+    filter: drop-shadow(2px 4px 3px rgba(0,0,0,0.3));
+}
+
+.markers {
+    position: absolute;
+    width: 600px;
+    top: 280px;
+    left: 1300px;
+    z-index: 9;
+    transform: rotate(-5deg);
+    filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.3));
+}
+
+.papersheet {
+    position: absolute;
+    width: 400px;
+    top: -50px;
+    left: 1300px;
+    z-index: 2;
+    transform: rotate(20deg); /* Slight natural angle */
+    filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.3));
+}
+
+.instruction-sheet {
+    position: absolute;
+    width: 400px;
+    top: -20px;
+    left: 20px;
+    z-index: 4;
+    transform: rotate(-10deg);
+    filter: drop-shadow(2px 4px 3px rgba(0,0,0,0.3));
+}
+
+.desk-mat {
+    position: absolute;
+    top: 350px;
+    left: 300px;
+    width: 1300px;
+    z-index: 1;
+    filter: drop-shadow(2px 4px 3px rgba(0,0,0,0.3));
+}
+
+.paperclips {
+    position: absolute;
+    width: 400px;
+    top: 600px;
+    z-index: 3;
+    filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.2));
+}
+
+.pencil-case {
+    position: absolute;
+    width: 700px;
+    top: 350px;
+    left: 1200px;
+    z-index: 3;
+    transform: scaleX(-1);
+    filter: drop-shadow(2px 4px 3px rgba(0,0,0,0.3));
+}
+
+/* ================
+   FIDGET SPINNER
+   ================ */
+.fidget-spinner {
+    width: 300px;
+    top: 650px;
+    left: 450px;
+    z-index: 9;
+    cursor: pointer;
+    transform-origin: center;
+    filter: drop-shadow(2px 4px 3px rgba(0,0,0,0.3));
+    transition: filter 0.3s ease;
+}
+
+.fidget-spinner:hover {
+    filter: drop-shadow(0 0 8px rgba(255,215,0,0.6)) brightness(1.1);
+}
+
+.fidget-spinner.spinning {
+    cursor: wait;
+    filter: drop-shadow(0 0 12px rgba(255,165,0,0.7)) brightness(1.2);
+}
+
+/* ================
+   ANIMATIONS
+   ================ */
+@keyframes spin-cw {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes spin-ccw {
+    to { transform: rotate(-360deg); }
+}
+
+/* ================
+   HOVER EFFECTS
+   ================ */
+.calculator:hover {
+    filter: drop-shadow(0 0 10px rgba(100, 200, 255, 0.7)) brightness(1.02);
+}
+
+.notepad:hover {
+    filter: drop-shadow(0 0 8px rgba(255, 255, 100, 0.7)) brightness(1.03);
+}
+
+.pencil:hover {
+    filter: drop-shadow(0 0 6px rgba(255, 100, 100, 0.6)) brightness(1.1);
+}
+
+.eraser:hover {
+    filter: drop-shadow(0 0 7px rgba(255, 150, 150, 0.6)) brightness(1.08);
+}
+
+.ruler:hover {
+    filter: drop-shadow(0 0 9px rgba(150, 255, 150, 0.6)) brightness(1.07);
+}
+
+.ballpoint-pen:hover {
+    filter: drop-shadow(0 0 5px rgba(100, 100, 255, 0.6)) brightness(1.12);
+}
+
+.stapler:hover {
+    filter: drop-shadow(0 0 7px rgba(200, 150, 255, 0.6)) brightness(1.05);
+}
+
+.dice:hover {
+    filter: drop-shadow(0 0 8px rgba(255, 100, 100, 0.6)) brightness(1.1);
+    transform: scale(1.05);
+}

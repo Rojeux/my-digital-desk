@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive Desk Website</title>
+    <link rel="stylesheet" href="desk-styles.css"> <!-- Links CSS -->
+</head>
+<body>
+    <div class="desk">
+      <!-- =====================
+           STATIC DESK DECORATIONS
+           ===================== -->
+        <div class="desk-decorations">
+            <img src="images/desk-mat.png" class="desk-mat">
+            <img src="images/pencil-case.png" class="pencil-case">
+            <img src="images/paperclips.png" class="paperclips">
+            <img src="images/instructions.png" class="instruction-sheet">
+            <img src="images/markers.png" class="markers">
+            <img src="images/papersheet.png" class="papersheet">
+        </div>
+        <!-- ==============
+             INTERACTIVE ITEMS
+             ============== -->
+        <!-- Calculator -->
+        <div class="calculator" id="draggable-calculator">
+            <input type="text" id="display" readonly>
+            <div class="buttons">
+                <button onclick="appendToDisplay('7')">7</button>
+                <button onclick="appendToDisplay('8')">8</button>
+                <button onclick="appendToDisplay('9')">9</button>
+                <button onclick="appendToDisplay('/')">÷</button>
+
+                <button onclick="appendToDisplay('4')">4</button>
+                <button onclick="appendToDisplay('5')">5</button>
+                <button onclick="appendToDisplay('6')">6</button>
+                <button onclick="appendToDisplay('*')">×</button>
+
+                <button onclick="appendToDisplay('1')">1</button>
+                <button onclick="appendToDisplay('2')">2</button>
+                <button onclick="appendToDisplay('3')">3</button>
+                <button onclick="appendToDisplay('-')">-</button>
+
+                <button onclick="appendToDisplay('0')">0</button>
+                <button onclick="appendToDisplay('.')">.</button>
+                <button onclick="clearDisplay()">C</button>
+                <button onclick="appendToDisplay('+')">+</button>
+
+                <button onclick="calculate()" class="equals">=</button>
+            </div>
+        </div>
+
+        <!-- Desk Accessories -->
+        <img src="images/pencil.png" class="desk-item pencil" id="pencil-tool"
+             data-transparent-threshold="0.1" draggable="false">
+        <img src="images/eraser.png" class="desk-item eraser" id="eraser-tool"
+             data-transparent-threshold="0.1" draggable="false">
+        <img src="images/ruler.png" class="desk-item ruler" id="ruler" draggable="false">
+        <img src="images/ballpoint-pen.png" class="desk-item ballpoint-pen" id="ballpoint-pen" draggable="false">
+        <img src="images/stapler.png" class="desk-item stapler" id="stapler" draggable="false">
+        <img src="images/fidget-spinner.png" class="desk-item fidget-spinner" id="fidget-spinner">
+        <div id="spin-direction-indicator"></div>
+        <img src="images/d20.png" class="desk-item dice" id="d20" draggable="false">
+
+        <!-- Notepad -->
+        <div class="notepad" id="notepad">
+            <div class="notepad-topbar">
+                <span>✏️ Write on Me!</span>
+                <button class="clear-btn">Clear</button>
+            </div>
+            <div class="drawing-area"></div> <!-- Changed from contenteditable div -->
+        </div>
+
+    <script src="desk-interactions.js"></script> <!-- Links JavaScript -->
+</body>
+</html>
